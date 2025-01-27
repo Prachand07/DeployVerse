@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /var/www/react-app
+cd /home/ec2-user/react-app
 
 echo "Installing npm dependencies..."
 npm install
