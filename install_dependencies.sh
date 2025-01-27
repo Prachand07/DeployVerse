@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo mkdir -p /home/ec2-user/react-app
 cd /home/ec2-user/react-app
 
 echo "Installing npm dependencies..."
