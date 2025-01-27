@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the application directory
-cd /var/www/react-app
+cd /home/ec2-user/react-app
 
 # Start the React app
 echo "Starting the React app..."
