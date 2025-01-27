@@ -1,13 +1,6 @@
 #!/bin/bash
-sudo mkdir -p /home/ec2-user/react-app
-cd /home/ec2-user/react-app
+sudo yum update -y  
+sudo yum install nginx -y
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
+sudo yum install -y nodejs
 
-echo "Installing npm dependencies..."
-npm install
-
-if [ $? -ne 0 ]; then
-    echo "Failed to install npm dependencies."
-    exit 1
-fi
-
-echo "NPM dependencies installed successfully."
