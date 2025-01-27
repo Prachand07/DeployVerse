@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ec2-user/react-app
+  - source: /build/
+    destination: /usr/share/nginx/html/
 hooks:
   BeforeInstall:
     - location: install_dependencies.sh
