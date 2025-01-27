@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/react-app
+hooks:
+  BeforeInstall:
+    - location: install_dependencies.sh
+      runas: root
+  AfterInstall:
+    - location: start_server.sh
+      runas: root
