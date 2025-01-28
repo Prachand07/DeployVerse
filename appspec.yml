@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /build/
+  - source: /
     destination: /var/www/html
 permissions:
   - object: /var/www/html
@@ -9,13 +9,6 @@ permissions:
     owner: ec2-user
     group: ec2-user
 hooks:
-  BeforeInstall:
-    - location: /bin/mv
-      runas: root
-      arguments: "/opt/codedeploy-agent/deployment-root/*/deployment-archive/configure.sh /home/ec2-user/configure.sh"
   AfterInstall:
-    - location: /bin/chmod
-      runas: root
-      arguments: "+x /home/ec2-user/configure.sh"
-    - location: /home/ec2-user/configure.sh
+    - location: configure.sh
       runas: root
