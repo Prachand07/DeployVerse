@@ -5,16 +5,5 @@ files:
     destination: /var/www/html/
 hooks:
   AfterInstall:
-    - location: |
-        # Install Nginx and Node.js
-        sudo yum update -y
-        sudo amazon-linux-extras enable nginx1
-        sudo yum install -y nginx
-        sudo yum install -y nodejs npm
-        sudo systemctl enable nginx
-        sudo systemctl start nginx
-  ApplicationStart:
-    - location: |
-        # Copy React build files to the default Nginx directory
-        sudo cp -r /var/www/html/* /usr/share/nginx/html/
-        sudo systemctl restart nginx
+    - location: scripts/install_dependencies.sh
+ 
