@@ -5,8 +5,14 @@ files:
     destination: /var/www/html/
 hooks:
   AfterInstall:
-    - location: "scripts/install_nginx.sh"
-      runas: root
+    - location: |
+        # Install Nginx and Node.js
+        sudo yum update -y
+        sudo yum install -y nginx
+        sudo yum install -y nodejs npm
+        
   ApplicationStart:
-    - location: "scripts/start_nginx.sh"
-      runas: root
+    - location: |
+        # Copy React build files to the default Nginx directory
+        sudo cp -r /var/www/html/* /usr/share/nginx/html/
+        sudo systemctl restart nginx
