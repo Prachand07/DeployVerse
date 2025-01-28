@@ -8,8 +8,14 @@ permissions:
     pattern: "**"
     owner: ec2-user
     group: ec2-user
-    mode: 755
 hooks:
+  BeforeInstall:
+    - location: /bin/mv
+      runas: root
+      arguments: "/opt/codedeploy-agent/deployment-root/*/deployment-archive/configure.sh /home/ec2-user/configure.sh"
   AfterInstall:
-    - location: configure.sh
+    - location: /bin/chmod
+      runas: root
+      arguments: "+x /home/ec2-user/configure.sh"
+    - location: /home/ec2-user/configure.sh
       runas: root
